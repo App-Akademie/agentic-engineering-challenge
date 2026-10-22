@@ -26,7 +26,7 @@ Ergänze eine Archivierung erledigter Tasks:
 
 Entscheide **vor dem Implementieren**: Verhalten bei wiederholten Aufrufen, unbekannten IDs, offenen Tasks, ungültiger Altersangabe, exakter Altersgrenze, Bedeutung von „Tag“ und Auswirkungen auf den Report. Die gemeinsame Referenz entscheidet diese Fragen in `reference/SPEC.md`; deine Entscheidungen dürfen abweichen, müssen aber ausdrücklich beschrieben und getestet sein.
 
-## Etappe 1: Constitution und Spec als Steuerungsfundament — 6 Punkte
+## Etappe 1: Constitution und Spec als Steuerungsfundament
 
 Schreibe `starter/CONSTITUTION.md` mit drei Kategorien:
 
@@ -38,7 +38,7 @@ Ergänze `starter/SPEC.md` mit konkreten und objektiv prüfbaren Regeln. Entsche
 
 **Nachweis:** Beide Dokumente liegen vor, bevor der Agent implementiert. Für mindestens zwei Punkte erklärst du, welche stille Entscheidung sie dem Agenten abnehmen. Trenne dauerhafte Projektregeln vom konkreten Featurevertrag.
 
-## Etappe 2: Umgebung und Werkzeugwahl — 6 Punkte
+## Etappe 2: Umgebung und Werkzeugwahl
 
 Prüfe drei Optionen: eine wiederkehrende Fähigkeit als Skill bündeln, einen externen Zugriff über MCP anbinden oder eine direkte Werkzeugdefinition im Code verwenden. Wähle mindestens eine Option begründet und richte sie tatsächlich ein. Begründe in ein bis zwei Sätzen, warum aufwendigere Alternativen keinen zusätzlichen Nutzen für deine Aufgabe bringen.
 
@@ -46,7 +46,7 @@ Du darfst die mitgelieferte direkte Werkzeugdefinition in `tools/definition.json
 
 **Nachweis:** konkrete Definition oder Skill/Anbindung, funktionierender Aufruf und dokumentierte Wahl. MCP ist keine Pflicht und setzt auch nicht zwingend mehrere Projekte voraus: Entscheidend sind ein tatsächlicher Integrationsbedarf und ein angemessener Aufwand.
 
-## Etappe 3: Geführte Umsetzung mit schlankem Kontext — 6 Punkte
+## Etappe 3: Geführte Umsetzung mit schlankem Kontext
 
 Lass den Agenten zuerst einen Plan aus deiner Spec ableiten. Prüfe ihn und korrigiere Abweichungen vor der Implementierung. Lass anschließend in kleinen Schritten implementieren und passend testen. Arbeite mindestens über zwei Sitzungen.
 
@@ -54,7 +54,7 @@ Speichere vor dem Wechsel eine kurze Handover-Notiz: verbindliche Entscheidungen
 
 **Nachweis:** bestätigter Plan, lauffähige Implementierung, echter Sitzungswechsel sowie ein konkretes Beispiel für Kontextkuration. Beschreibe den erwarteten Nutzen; behaupte ohne Vergleich keine gemessene Verbesserung.
 
-## Etappe 4: Getrennte Verifikation und Abnahme — 6 Punkte
+## Etappe 4: Getrennte Verifikation und Abnahme
 
 Prüfe mit frischem Kontext selbst oder nutze einen zweiten Prüfer. Gib Spec, Constitution, vollständigen Diff, relevante Bestandsdateien und reproduzierbare Testbefehle weiter. Der Prüfer erhält nicht die Rechtfertigungen aus dem Generierungsverlauf. Unveränderte aufgerufene Funktionen dürfen gezielt gelesen werden, sonst können Regressionen außerhalb des Diffs verborgen bleiben.
 
@@ -62,11 +62,9 @@ Prüfe jeden Spec-Punkt einzeln. Lies den ganzen Diff und erkläre jede Änderun
 
 **Nachweis:** Kriterienmatrix, Suchbefund, tatsächliche Prüfausgaben, geklärte Annahmen und erklärbarer Diff. Eine grüne Suite ist Evidenz für ihre Fälle, kein allgemeiner Korrektheitsbeweis. Ein künstlich eingebauter Demofehler ersetzt nicht deine eigene Prüfsuche.
 
-## Abgabe und Reflexion — 1 Punkt
+## Abgabe und Reflexion
 
 Reiche Code, Tests, Installationsanleitung, Constitution, Spec, Entscheidungsprotokoll je Etappe, Sitzungs-Handover, vollständigen Diff und Verifikationsnachweise ein. Erläutere kurz eine bewusste Abwägung und eine verbleibende Grenze. Ein Remote-Merge ist für diese lokale Übung nicht erforderlich; zeige einen nachvollziehbaren, abnahmefähigen Stand.
-
-**Bewertung: 25 Punkte.** Die vier Prozessetappen ergeben je 6 Punkte; der zusätzliche Punkt gilt hier ausdrücklich der vollständigen Abgabe und Reflexion. Diese Aufteilung konkretisiert die Anzeige im LMS, die 25 Gesamtpunkte und vier Teilaufgaben zu je 6 Punkten nennt.
 
 ## Fertig, wenn …
 

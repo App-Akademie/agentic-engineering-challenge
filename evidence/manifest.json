@@ -56,7 +56,7 @@
   ],
   "sha256": {
     ".gitignore": "ade98c486bfc9277521778e728d62fa2cd8b610b271fefa8535fc24057cf9fff",
-    "AUFGABENSTELLUNG.md": "26c87b40752851827d655e13cae2a2f961ce0a06a3023331a099d4e5b8e68376",
+    "AUFGABENSTELLUNG.md": "cb1ca449101546b05db5cff00e13a838bb3b313418b2d8499ef0b674b09ebc2c",
     "README.md": "bba46e8959ed2b256f55682292fbcb513b98a8262f65458720a935c95c804bf8",
     "WALKTHROUGH.md": "c63d08d5a0b5b49bd18723692447444319d09ea779dd292c4e70bfc2d0e2050e",
     "demos/report-regression.test.js": "5ab1f3d9cbc033e22d3e78d18da9d8c16aec677ca22740c6990b6701d7d1bb46",
@@ -93,5 +93,6 @@
     "tools/run-tests.js": "53c2f01aebecc16ef436446a1d296f7affa2679f148c78bcabae5e45a442226e",
     "tools/verify.js": "98ab1d917bf4156aa4d06aebaca1c7e3e1b695ab074b1fe2d30ac36d0014b269"
   },
-  "note": "Tatsächliche lokale Prüfläufe. Keine separate Agentenprüfung und keine vergangenen Sitzungen nachgewiesen."
+  "note": "Tatsächliche lokale Prüfläufe. Keine separate Agentenprüfung und keine vergangenen Sitzungen nachgewiesen.",
+  "documentationNote": "Punkteangaben und Bewertungsabsatz aus AUFGABENSTELLUNG.md entfernt; Dokument-Prüfsumme aktualisiert. Die dokumentierten Testläufe bleiben unverändert."
 }
