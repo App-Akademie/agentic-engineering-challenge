@@ -74,7 +74,8 @@ async function smoke(target) {
 
 async function main() {
   check('tests', ['--test', '--test-reporter=tap',
-    'starter/test/baseline.test.js', 'reference/test/baseline.test.js', 'reference/test/archive.test.js']);
+    'starter/test/baseline.test.js', 'reference/test/baseline.test.js', 'reference/test/archive.test.js',
+    'reference/test/ui.test.js']);
   check('tool-starter', ['tools/run-tests.js', 'starter']);
   check('tool-reference', ['tools/run-tests.js', 'reference']);
   check('regression-demo', ['tools/demo-regression.js']);

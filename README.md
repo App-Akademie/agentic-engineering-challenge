@@ -18,6 +18,10 @@ Der Starter läuft unter `http://127.0.0.1:3000`. Mit Strg+C beenden. Danach die
 npm run start:reference
 ```
 
+Die Referenz bietet unter `http://127.0.0.1:3000/` eine einfache Browser-Oberfläche: Tasks anlegen, abschließen und anschließend archivieren. Filter zeigen aktive, offene, abgeschlossene oder archivierte Tasks; „Refresh“ lädt den aktuellen Serverstand neu. JavaScript muss aktiviert sein. Die Oberfläche nutzt dieselbe HTTP-API und denselben In-Memory-Speicher. Der Starter bleibt eine reine API.
+
+Die aufklappbare Walkthrough-Checkliste führt Teilnehmende durch acht Schritte mit kopierbaren Prompts für Sitzung 1, Sitzung 2, eine frische Prüfsitzung und die Abnahme. Sie folgt `docs/PROMPTS.md`; die Aufgabe wird weiterhin in `starter/` bearbeitet. Häkchen werden nur im lokalen Browser gespeichert und ersetzen keine eigenen Prozess- und Prüfnachweise. Bei gesperrtem Browserspeicher funktionieren sie bis zum Neuladen. Die Task-Speicherung bleibt davon unabhängig.
+
 Alternativer Port: `PORT=3001 npm run start:reference` (macOS/Linux). Unter PowerShell zuerst `$env:PORT=3001` setzen. Der Server bindet nur lokal. Daten liegen im Speicher und gehen bei jedem Neustart verloren. Dies ist eine lokale Übungsanwendung ohne Anmeldung und dauerhafte Speicherung.
 
 ## Wo anfangen?
@@ -39,8 +43,8 @@ Die Referenz ist zum Nachschlagen und für die Nachbesprechung gedacht. Wer selb
 
 ```sh
 npm run test:starter              # bestehendes Verhalten, 5 Tests
-npm run test:reference            # Bestand + Feature, 21 Tests
-npm test                         # beide Varianten, 26 Tests
+npm run test:reference            # Bestand + Feature + Oberfläche, 23 Tests
+npm test                         # beide Varianten, 28 Tests
 npm run tool:check -- starter     # strukturierte Ausgabe des lokalen Werkzeugs
 npm run tool:check -- reference
 npm run demo:regression           # bewusst roter Test gegen temporär eingebauten Fehler
@@ -57,6 +61,7 @@ WALKTHROUGH.md              Moderationsablauf und Auflösung
 starter/src/                kleine bestehende Task-API ohne Archivierung
 starter/test/               Tests des Bestands
 reference/src/              fertige Implementierung
+reference/public/           Browser-Oberfläche ohne Build-Schritt
 reference/test/             Bestands- und Featuretests mit kontrollierter Zeit
 reference/*.md              Constitution, Spec und Prozessbeispiele
 tools/                      direkte Werkzeugdefinition, Testaufruf und Fehlerdemo

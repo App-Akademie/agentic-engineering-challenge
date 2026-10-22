@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tasks</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+  <script src="/walkthrough.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Tasks</h1>
+    <details id="walkthrough" open lang="de">
+      <summary>Walkthrough challenge: Checkliste für Teilnehmer</summary>
+      <p>Arbeite in <code>starter/</code>. Plane 1–3 Stunden über mindestens zwei echte Sitzungen ein. Die etwa 70-minütige Nachbesprechung folgt auf deinen eigenen Versuch. Die Aufgabenliste unten zeigt die fertige Referenz; lies <code>reference/</code> erst nach deinem Versuch.</p>
+      <p>Nutze die Prompts in deinem Agenten-Chat. Du prüfst die Ergebnisse und entscheidest über den Vertrag. Sichere echte Ergebnisse; die Häkchen sind nur deine persönliche Merkhilfe.</p>
+      <p id="walkthrough-progress" role="status" aria-live="polite">0 von 8 Schritten erledigt</p>
+      <p id="walkthrough-storage">Fortschritt wird nur in diesem Browser gespeichert. Task-Daten bleiben im Arbeitsspeicher des Servers.</p>
+      <p id="walkthrough-message" role="status" aria-live="polite"></p>
+      <h3>Sitzung 1: Verstehen, entscheiden und beginnen</h3>
+      <ul class="walkthrough-steps">
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="baseline"> <strong>1. Bestand und Regeln klären</strong></label>
+          <p>Im Projektordner npm ci und npm run test:starter ausführen. Ausgangsbefund sichern. Danach starter/CONSTITUTION.md (dauerhafte Regeln) und starter/SPEC.md (Featurevertrag) erstellen und selbst bestätigen. Vor dem Implementieren Fehlerfälle, Wiederholungen, Zeitgrenze und Report festlegen; zwei vermiedene stille Entscheidungen erklären.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-baseline" tabindex="0">Lies die Aufgabenstellung und die Quellen in starter/src sowie die Baseline-Tests. Führe npm run test:starter aus. Ändere noch keinen Anwendungscode. Beschreibe den Bestand, die Stellen, die von einem dritten Task-Status betroffen sind, und offene Produktentscheidungen für die Archivierung. Entwirf danach Constitution und Spec, wobei du offene Entscheidungen sichtbar lässt. Ich lege fest, welche Antworten verbindlich werden.</pre>
+            <button type="button" data-copy="prompt-baseline">Prompt kopieren: Schritt 1</button>
+          </details>
+        </li>
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="tooling"> <strong>2. Werkzeug wählen und ausprobieren</strong></label>
+          <p>Skill, MCP und direkte Werkzeugdefinition vergleichen. Mindestens eine Option tatsächlich einrichten und ausführen. Für dieses Projekt genügt meist npm run tool:check -- starter. Ein- und Ausgabe sowie die eigene Wahl dokumentieren.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-tooling" tabindex="0">Prüfe, ob die Aufgabe einen Skill, eine MCP-Anbindung oder eine direkte Werkzeugdefinition benötigt. Begründe die leichteste ausreichende Option. Lies tools/definition.json und tools/run-tests.js. Führe das lokale Testwerkzeug gegen starter aus und erläutere Ein- und Ausgabe. Behaupte keine automatische Integration in deinen Host, wenn keine eingerichtet ist.</pre>
+            <button type="button" data-copy="prompt-tooling">Prompt kopieren: Schritt 2</button>
+          </details>
+        </li>
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="plan"> <strong>3. Plan prüfen und bestätigen</strong></label>
+          <p>Den Plan gegen die eigene Spec prüfen. Auch bestehende Complete- und Report-Funktionen berücksichtigen. Abweichungen korrigieren und den Plan vor Codeänderungen ausdrücklich bestätigen.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-plan" tabindex="0">Lies starter/CONSTITUTION.md und starter/SPEC.md. Erstelle einen kurzen Umsetzungsplan mit betroffenen Dateien und einem Nachweis pro Regel. Berücksichtige auch unveränderte Bestandsfunktionen. Schreibe noch keinen Anwendungscode. Markiere jede Unklarheit oder Abweichung vom Vertrag; rate keine Produktentscheidung.</pre>
+            <button type="button" data-copy="prompt-plan">Prompt kopieren: Schritt 3</button>
+          </details>
+        </li>
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="implement"> <strong>4. In kleinen Schritten implementieren</strong></label>
+          <p>Nur starter/ bearbeiten. Store, Routen und passende Tests schrittweise ergänzen. Zeitabhängige Tests mit kontrollierter Uhr schreiben. Entscheidungen während der Arbeit protokollieren; jede Änderung selbst verstehen.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-implement" tabindex="0">Implementiere den von mir bestätigten Plan in starter/. Gehe in kleinen Schritten vor und führe die jeweils relevanten Tests aus. Melde Vertragskonflikte vor einer Änderung der vereinbarten Semantik. Halte im Entscheidungsprotokoll konkrete Entscheidungen während der Arbeit fest. Ergänze zeitabhängige Tests mit einer kontrollierten Uhr.</pre>
+            <button type="button" data-copy="prompt-implement">Prompt kopieren: Schritt 4</button>
+          </details>
+        </li>
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="handover"> <strong>5. Handover schreiben und Sitzung beenden</strong></label>
+          <p>starter/HANDOVER.md aus dem tatsächlichen Zwischenstand schreiben: Entscheidungen, Dateien, echte Testausgabe, offene Fragen und nächste Aktion. Danach den Chat beenden. Ein Häkchen ersetzt keinen echten Sitzungswechsel.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-handover" tabindex="0">Speichere eine kurze Handover-Notiz im Arbeitsprojekt: akzeptierte Entscheidungen, tatsächlicher Code- und Teststand mit Verweis auf die Ausgabe, offene Fragen, bekannte Grenzen und nächste Aktion. Bewahre Unsicherheiten, lasse verworfene Pläne aus der aktuellen Anweisung weg. Erfinde keine Testläufe oder erreichten Meilensteine. Verwende starter/HANDOVER.md für die Notiz.</pre>
+            <button type="button" data-copy="prompt-handover">Prompt kopieren: Schritt 5</button>
+          </details>
+        </li>
+      </ul>
+      <h3>Sitzung 2: Mit gezieltem Kontext fortsetzen</h3>
+      <ul class="walkthrough-steps">
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="resume"> <strong>6. In einem neuen Chat weiterarbeiten</strong></label>
+          <p>Constitution, Spec, Handover und nur die benötigten Dateien mitgeben. Den Stand prüfen und den bestätigten Plan abschließen. Dokumentieren, welchen Kontext du bewusst ausgewählt hast und warum. Unsicherheiten erhalten; keine unbelegte Leistungsverbesserung behaupten.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-resume" tabindex="0">Lies Constitution, Spec und die aktuelle Handover-Notiz im Arbeitsprojekt. Prüfe die genannten Dateien gegen den tatsächlichen Stand und fasse die nächste offene Arbeit zusammen. Lade weiteren Kontext nur gezielt. Setze dann den bestätigten Plan fort. Die Handover-Notiz liegt in starter/HANDOVER.md.</pre>
+            <button type="button" data-copy="prompt-resume">Prompt kopieren: Schritt 6</button>
+          </details>
+        </li>
+      </ul>
+      <h3>Frische Prüfsitzung und Abnahme</h3>
+      <ul class="walkthrough-steps">
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="review"> <strong>7. Unabhängig prüfen</strong></label>
+          <p>Einen neuen Prüfchat oder eine andere prüfende Person nutzen. Spec, Constitution, vollständigen Diff, relevante Bestandsdateien und Testbefehle bereitstellen; die Rechtfertigungen aus dem Generierungschat weglassen. Jeden Spec-Punkt einer Prüfung zuordnen, aktiv nach einem ungetesteten Fall suchen und das Ergebnis dokumentieren. Bei einem Fehler möglichst roten und korrigierten grünen Lauf sichern.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-review" tabindex="0">Prüfe die Implementierung gegen Spec und Constitution. Nutze den vollständigen Diff, die relevanten Bestandsdateien und reproduzierbare Testbefehle. Ordne jedem Kriterium konkrete Evidenz zu. Prüfe besonders Annahmen, die durch einen dritten Status ungültig werden, auch außerhalb des Diffs. Suche nach mindestens einem noch ungetesteten Fall und dokumentiere deine Suche. Liefere konkrete Befunde mit Ort und Gegenbeispiel. Wenn eine Testlücke vorliegt, ergänze einen aussagekräftigen Test und führe ihn aus. Behaupte keinen Fehler, falls du keinen nachweisen kannst. Markiere offene Fragen und Grenzen.</pre>
+            <button type="button" data-copy="prompt-review">Prompt kopieren: Schritt 7</button>
+          </details>
+        </li>
+        <li>
+          <label class="step-label"><input type="checkbox" data-step="accept"> <strong>8. Abnehmen und abgeben</strong></label>
+          <p>Den ganzen Diff erklären und die Regeln der eigenen Spec vorführen. Code, Tests, Installationsanleitung, Constitution, Spec, Plan, Entscheidungen, Handover, vollständigen Diff und Prüfnachweise abgeben. Eine Abwägung und eine verbleibende Grenze nennen. Die Demo-Regression ersetzt keine eigene Fehlersuche.</p>
+          <details class="step-prompt">
+            <summary>Prompt anzeigen</summary>
+            <pre id="prompt-accept" tabindex="0">Gehe die Kriterienmatrix und den gesamten Diff mit mir durch. Erkläre jede Änderung und ihren Bezug zum Vertrag. Zeige die tatsächlichen Testausgaben, verbleibende Risiken und noch fehlende Nachweise. Trenne bewusst eingesetzte Lehrfehler von tatsächlich gefundenen Fehlern.</pre>
+            <button type="button" data-copy="prompt-accept">Prompt kopieren: Schritt 8</button>
+          </details>
+        </li>
+      </ul>
+    </details>
+    <form id="create-form">
+      <label for="task-title">New task</label>
+      <div class="input-row">
+        <input id="task-title" name="title" type="text" placeholder="Task title" required autocomplete="off">
+        <button type="submit">Add task</button>
+      </div>
+    </form>
+
+    <p id="notice" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p id="error" role="alert" hidden></p>
+
+    <section aria-labelledby="list-title">
+      <h2 id="list-title">Task list</h2>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks by status">
+          <button type="button" data-filter="active" aria-pressed="true">Active <span data-count="active">0</span></button>
+          <button type="button" data-filter="open" aria-pressed="false">Open <span data-count="open">0</span></button>
+          <button type="button" data-filter="completed" aria-pressed="false">Completed <span data-count="completed">0</span></button>
+          <button type="button" data-filter="archived" aria-pressed="false">Archived <span data-count="archived">0</span></button>
+        </div>
+        <button id="refresh" type="button">Refresh</button>
+      </div>
+      <p id="task-summary">Loading tasks…</p>
+      <div id="task-content" aria-busy="true">
+        <div id="empty-state">
+          <p id="empty-title">Loading tasks…</p>
+          <p id="empty-description">Please wait.</p>
+        </div>
+        <ul id="task-list" aria-label="Tasks" hidden></ul>
+      </div>
+    </section>
+
+    <footer>Tasks are stored in memory and reset when the server restarts.</footer>
+    <noscript><p>Enable JavaScript to manage tasks.</p></noscript>
+  </main>
+</body>
+</html>

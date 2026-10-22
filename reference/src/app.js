@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('node:path');
 const { createTaskStore, validThreshold } = require('./taskStore');
 
 function createApp({ store = createTaskStore() } = {}) {
@@ -44,6 +45,7 @@ function createApp({ store = createTaskStore() } = {}) {
     return res.json(store.bulkArchiveCompleted(olderThanDays));
   });
   app.get('/report/summary', (req, res) => res.json({ completedCount: store.countCompletedForReport() }));
+  app.use(express.static(path.join(__dirname, '../public')));
   app.use((req, res) => fail(res, 404, 'not_found', 'route not found'));
   app.use((error, req, res, next) => {
     if (error.type === 'entity.parse.failed') return fail(res, 400, 'invalid_json', 'body must be valid JSON');

@@ -4,24 +4,24 @@
     "path": "/tasks",
     "status": 201,
     "body": {
-      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "id": "cdafef54-2aea-4214-a6e0-4b3d6edb4081",
       "title": "Smoke test",
       "status": "open",
-      "createdAt": "2026-10-22T11:52:10.685Z",
+      "createdAt": "2026-10-22T13:02:10.824Z",
       "completedAt": null,
       "archivedAt": null
     }
   },
   {
     "method": "POST",
-    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/complete",
+    "path": "/tasks/cdafef54-2aea-4214-a6e0-4b3d6edb4081/complete",
     "status": 200,
     "body": {
-      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "id": "cdafef54-2aea-4214-a6e0-4b3d6edb4081",
       "title": "Smoke test",
       "status": "completed",
-      "createdAt": "2026-10-22T11:52:10.685Z",
-      "completedAt": "2026-10-22T11:52:10.687Z",
+      "createdAt": "2026-10-22T13:02:10.824Z",
+      "completedAt": "2026-10-22T13:02:10.826Z",
       "archivedAt": null
     }
   },
@@ -35,28 +35,28 @@
   },
   {
     "method": "POST",
-    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/archive",
+    "path": "/tasks/cdafef54-2aea-4214-a6e0-4b3d6edb4081/archive",
     "status": 200,
     "body": {
-      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "id": "cdafef54-2aea-4214-a6e0-4b3d6edb4081",
       "title": "Smoke test",
       "status": "archived",
-      "createdAt": "2026-10-22T11:52:10.685Z",
-      "completedAt": "2026-10-22T11:52:10.687Z",
-      "archivedAt": "2026-10-22T11:52:10.691Z"
+      "createdAt": "2026-10-22T13:02:10.824Z",
+      "completedAt": "2026-10-22T13:02:10.826Z",
+      "archivedAt": "2026-10-22T13:02:10.830Z"
     }
   },
   {
     "method": "POST",
-    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/archive",
+    "path": "/tasks/cdafef54-2aea-4214-a6e0-4b3d6edb4081/archive",
     "status": 200,
     "body": {
-      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "id": "cdafef54-2aea-4214-a6e0-4b3d6edb4081",
       "title": "Smoke test",
       "status": "archived",
-      "createdAt": "2026-10-22T11:52:10.685Z",
-      "completedAt": "2026-10-22T11:52:10.687Z",
-      "archivedAt": "2026-10-22T11:52:10.691Z"
+      "createdAt": "2026-10-22T13:02:10.824Z",
+      "completedAt": "2026-10-22T13:02:10.826Z",
+      "archivedAt": "2026-10-22T13:02:10.830Z"
     }
   },
   {
@@ -69,7 +69,7 @@
   },
   {
     "method": "POST",
-    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/complete",
+    "path": "/tasks/cdafef54-2aea-4214-a6e0-4b3d6edb4081/complete",
     "status": 409,
     "body": {
       "error": {

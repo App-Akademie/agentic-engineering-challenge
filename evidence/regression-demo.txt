@@ -3,9 +3,9 @@ TAP version 13
 # Subtest: Report muss archivierte Tasks ausschließen
 not ok 1 - Report muss archivierte Tasks ausschließen
   ---
-  duration_ms: 12.426042
+  duration_ms: 36.370791
   type: 'test'
-  location: '/Users/janbiernacki/Documents/ChatGPT/App-Akademie/agentic-engineering-challenge/demos/report-regression.test.js:8:1'
+  location: '/Users/janbiernacki/Dev/AppAkademieDev/agentic-engineering-challenge/demos/report-regression.test.js:8:1'
   failureType: 'testCodeFailure'
   error: |-
     Archivierte Tasks dürfen nicht mitgezählt werden
@@ -18,7 +18,7 @@ not ok 1 - Report muss archivierte Tasks ausschließen
   actual: 1
   operator: 'strictEqual'
   stack: |-
-    TestContext.<anonymous> (/Users/janbiernacki/Documents/ChatGPT/App-Akademie/agentic-engineering-challenge/demos/report-regression.test.js:13:10)
+    TestContext.<anonymous> (/Users/janbiernacki/Dev/AppAkademieDev/agentic-engineering-challenge/demos/report-regression.test.js:13:10)
     process.processTicksAndRejections (node:internal/process/task_queues:104:5)
     async Test.run (node:internal/test_runner/test:1389:7)
     async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
@@ -31,5 +31,5 @@ not ok 1 - Report muss archivierte Tasks ausschließen
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 78.219125
+# duration_ms 239.738584
 Erwarteter Fehler reproduziert. Die Referenz bleibt unverändert.

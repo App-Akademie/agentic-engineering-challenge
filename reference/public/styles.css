@@ -1,0 +1,49 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px 16px; font: 16px/1.5 system-ui, sans-serif; color: #222; background: #fff; }
+main { max-width: 720px; margin: 0 auto; }
+h1 { margin: 0 0 24px; font-size: 28px; }
+h2 { margin: 24px 0 12px; font-size: 20px; }
+label { display: block; margin-bottom: 6px; }
+button, input { font: inherit; }
+button { padding: 7px 12px; color: #222; background: #f4f4f4; border: 1px solid #aaa; border-radius: 4px; cursor: pointer; }
+button:hover { background: #e8e8e8; }
+button:disabled, input:disabled { opacity: .6; cursor: wait; }
+button:focus-visible, input:focus-visible { outline: 2px solid #2459aa; outline-offset: 2px; }
+input[type="text"] { min-width: 0; flex: 1; padding: 8px; border: 1px solid #aaa; border-radius: 4px; }
+.input-row, .toolbar, .filters { display: flex; gap: 8px; }
+.toolbar { flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.filters { flex-wrap: wrap; }
+.filters button { padding: 6px 9px; font-size: 14px; }
+.filters button[aria-pressed="true"] { color: #fff; background: #333; border-color: #333; }
+[data-count]::before { content: "("; }
+[data-count]::after { content: ")"; }
+#notice { color: #236036; font-size: 14px; }
+#error { color: #a02020; }
+#task-summary, #empty-description, footer { color: #666; font-size: 14px; }
+#task-list { padding: 0; margin: 0; list-style: none; }
+.task-row { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid #ddd; }
+.task-details { flex: 1; min-width: 0; }
+.task-title { font-size: 16px; font-weight: 500; margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.task-meta { color: #666; font-size: 13px; display: flex; gap: 10px; flex-wrap: wrap; }
+.task-action { flex-shrink: 0; font-size: 14px; }
+footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #ddd; }
+[hidden] { display: none !important; }
+#walkthrough { border: 1px solid #ccc; border-radius: 4px; padding: 12px; margin-bottom: 24px; }
+summary { cursor: pointer; }
+#walkthrough > summary { font-weight: 600; }
+#walkthrough h3 { font-size: 16px; margin: 24px 0 12px; }
+#walkthrough p { font-size: 14px; }
+#walkthrough-progress { font-weight: 600; }
+#walkthrough-storage { color: #666; }
+.walkthrough-steps { list-style: none; padding: 0; }
+.walkthrough-steps > li { border-top: 1px solid #ddd; padding: 14px 0; }
+.step-label { display: flex; align-items: baseline; gap: 8px; font-size: 15px; cursor: pointer; }
+.step-label input { flex-shrink: 0; }
+.step-prompt { font-size: 14px; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f5f5f5; padding: 12px; font-size: 13px; }
+code { overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  .input-row { flex-wrap: wrap; }
+  .input-row input { flex-basis: 100%; }
+  .task-row { gap: 8px; }
+}

@@ -52,4 +52,10 @@ Gültige Eingaben sind JavaScript-safe Integer im benannten Bereich; Zeichenkett
 
 ## Bewusste Grenzen
 
-Ein lokaler Prozess und In-Memory-Speicher. Kein Benutzer-/Rechtemodell, keine Persistenz, keine Produktionslast, keine asynchronen Transaktionen, kein Scheduler. Es ist eine HTTP-API ohne grafische Oberfläche. Archivierung entfernt abgeschlossene Tasks bewusst aus der aktuellen Reportzählung; das ist keine Behauptung über historische Auswertungen oder vermiedene Doppelzählungen.
+Ein lokaler Prozess und In-Memory-Speicher. Kein Benutzer-/Rechtemodell, keine Persistenz, keine Produktionslast, keine asynchronen Transaktionen, kein Scheduler. Die Referenz ergänzt die HTTP-API um eine Browser-Oberfläche unter `/`. Archivierung entfernt abgeschlossene Tasks bewusst aus der aktuellen Reportzählung; das ist keine Behauptung über historische Auswertungen oder vermiedene Doppelzählungen.
+
+## Browser-Oberfläche
+
+Die Referenz liefert unter `/` eine Oberfläche ohne zusätzlichen Build-Schritt oder neue Abhängigkeiten aus. Sie nutzt ausschließlich die vorhandenen API-Endpunkte und verändert Task-Daten nicht direkt. Nutzende können Tasks anlegen, offene Tasks abschließen und abgeschlossene Tasks archivieren. Filter zeigen aktive Tasks (open/completed) oder einen einzelnen Status einschließlich archived. Archivierte Tasks bleiben lesbar und erhalten keine weiteren Zustandsaktionen. Leere Listen, laufende Anfragen und Fehler sind sichtbar; Task-Titel werden als Text ausgegeben. Der Starter bleibt unverändert. Alle API-Verträge gelten weiterhin; unbekannte Routen liefern weiterhin den JSON-Fehler `not_found`.
+
+Eine einfache Checkliste ergänzt acht Arbeitsschritte mit Prompts für mindestens zwei echte Bearbeitungssitzungen, eine frische Prüfung und die Abnahme. Die Inhalte folgen Aufgabenstellung und Promptvorlagen; gearbeitet wird in `starter/`. Persönliche Häkchen bleiben nach dem Neuladen im selben Browser erhalten, soweit dessen lokaler Speicher verfügbar ist. Ohne Speicher bleibt die Checkliste bis zum Neuladen benutzbar. Prompts lassen sich kopieren oder bei gesperrter Zwischenablage manuell markieren. Task-Anfragen sperren keine Checklistenelemente. Häkchen sind keine Nachweise für tatsächlich ausgeführte Arbeit.
