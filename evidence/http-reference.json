@@ -1,0 +1,89 @@
+[
+  {
+    "method": "POST",
+    "path": "/tasks",
+    "status": 201,
+    "body": {
+      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "title": "Smoke test",
+      "status": "open",
+      "createdAt": "2026-10-22T11:52:10.685Z",
+      "completedAt": null,
+      "archivedAt": null
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/complete",
+    "status": 200,
+    "body": {
+      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "title": "Smoke test",
+      "status": "completed",
+      "createdAt": "2026-10-22T11:52:10.685Z",
+      "completedAt": "2026-10-22T11:52:10.687Z",
+      "archivedAt": null
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/report/summary",
+    "status": 200,
+    "body": {
+      "completedCount": 1
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/archive",
+    "status": 200,
+    "body": {
+      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "title": "Smoke test",
+      "status": "archived",
+      "createdAt": "2026-10-22T11:52:10.685Z",
+      "completedAt": "2026-10-22T11:52:10.687Z",
+      "archivedAt": "2026-10-22T11:52:10.691Z"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/archive",
+    "status": 200,
+    "body": {
+      "id": "a6d17ec4-849b-440b-83ab-781597c826ce",
+      "title": "Smoke test",
+      "status": "archived",
+      "createdAt": "2026-10-22T11:52:10.685Z",
+      "completedAt": "2026-10-22T11:52:10.687Z",
+      "archivedAt": "2026-10-22T11:52:10.691Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/report/summary",
+    "status": 200,
+    "body": {
+      "completedCount": 0
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/a6d17ec4-849b-440b-83ab-781597c826ce/complete",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "invalid_transition",
+        "message": "archived tasks cannot be completed"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/archive-completed",
+    "status": 200,
+    "body": {
+      "archivedCount": 0
+    }
+  }
+]

@@ -1,0 +1,120 @@
+--- starter/src/app.js
++++ reference/src/app.js
+@@ -1,5 +1,5 @@
+ const express = require('express');
+-const { createTaskStore } = require('./taskStore');
++const { createTaskStore, validThreshold } = require('./taskStore');
+ 
+ function createApp({ store = createTaskStore() } = {}) {
+   const app = express();
+@@ -15,7 +15,7 @@
+   });
+   app.get('/tasks', (req, res) => {
+     const { status } = req.query;
+-    if (status !== undefined && !['open', 'completed'].includes(status)) {
++    if (status !== undefined && !['open', 'completed', 'archived'].includes(status)) {
+       return fail(res, 400, 'invalid_status', 'unsupported task status');
+     }
+     return res.json(store.listTasks({ status }));
+@@ -26,7 +26,22 @@
+   });
+   app.post('/tasks/:id/complete', (req, res) => {
+     const result = store.completeTask(req.params.id);
+-    return result.error ? fail(res, 404, 'not_found', 'task not found') : res.json(result.task);
++    if (result.error === 'not_found') return fail(res, 404, 'not_found', 'task not found');
++    if (result.error) return fail(res, 409, 'invalid_transition', 'archived tasks cannot be completed');
++    return res.json(result.task);
++  });
++  app.post('/tasks/:id/archive', (req, res) => {
++    const result = store.archiveTask(req.params.id);
++    if (result.error === 'not_found') return fail(res, 404, 'not_found', 'task not found');
++    if (result.error) return fail(res, 409, 'not_completed', 'only completed tasks can be archived');
++    return res.json(result.task);
++  });
++  app.post('/tasks/archive-completed', (req, res) => {
++    const olderThanDays = req.body?.olderThanDays;
++    if (!validThreshold(olderThanDays)) {
++      return fail(res, 400, 'invalid_threshold', 'olderThanDays must be a positive integer within the supported range');
++    }
++    return res.json(store.bulkArchiveCompleted(olderThanDays));
+   });
+   app.get('/report/summary', (req, res) => res.json({ completedCount: store.countCompletedForReport() }));
+   app.use((req, res) => fail(res, 404, 'not_found', 'route not found'));
+--- starter/src/taskStore.js
++++ reference/src/taskStore.js
+@@ -1,4 +1,7 @@
+ const { randomUUID } = require('node:crypto');
++const DAY_MS = 24 * 60 * 60 * 1000;
++const MAX_DAYS = Math.floor(Number.MAX_SAFE_INTEGER / DAY_MS);
++const validThreshold = value => Number.isSafeInteger(value) && value > 0 && value <= MAX_DAYS;
+ 
+ function createTaskStore({ clock = () => new Date() } = {}) {
+   const tasks = new Map();
+@@ -8,28 +11,53 @@
+     createTask(title) {
+       const task = {
+         id: randomUUID(), title, status: 'open',
+-        createdAt: clock().toISOString(), completedAt: null,
++        createdAt: clock().toISOString(), completedAt: null, archivedAt: null,
+       };
+       tasks.set(task.id, task);
+       return copy(task);
+     },
+     getTask(id) { return copy(tasks.get(id)); },
+     listTasks({ status } = {}) {
+-      return [...tasks.values()].filter(task => !status || task.status === status).map(copy);
++      return [...tasks.values()]
++        .filter(task => status ? task.status === status : task.status !== 'archived').map(copy);
+     },
+     completeTask(id) {
+       const task = tasks.get(id);
+       if (!task) return { error: 'not_found' };
++      if (task.status === 'archived') return { error: 'invalid_transition' };
+       if (task.status === 'completed') return { task: copy(task) };
+       task.status = 'completed';
+       task.completedAt = clock().toISOString();
+       return { task: copy(task) };
+     },
++    archiveTask(id) {
++      const task = tasks.get(id);
++      if (!task) return { error: 'not_found' };
++      if (task.status === 'archived') return { task: copy(task) };
++      if (task.status !== 'completed') return { error: 'not_completed' };
++      task.status = 'archived';
++      task.archivedAt = clock().toISOString();
++      return { task: copy(task) };
++    },
++    bulkArchiveCompleted(olderThanDays) {
++      if (!validThreshold(olderThanDays)) return { error: 'invalid_threshold' };
++      const now = clock();
++      const cutoff = now.getTime() - olderThanDays * DAY_MS;
++      let archivedCount = 0;
++      for (const task of tasks.values()) {
++        if (task.status === 'completed' && Date.parse(task.completedAt) <= cutoff) {
++          task.status = 'archived';
++          task.archivedAt = now.toISOString();
++          archivedCount += 1;
++        }
++      }
++      return { archivedCount };
++    },
+     countCompletedForReport() {
+-      // Im Starter existieren nur open und completed.
+-      return [...tasks.values()].filter(task => task.status !== 'open').length;
++      // REPORT_PREDICATE: Die Demo ersetzt nur diese Bedingung in einer temporären Kopie.
++      return [...tasks.values()].filter(task => task.status === 'completed').length;
+     },
+   };
+ }
+ 
+-module.exports = { createTaskStore };
++module.exports = { createTaskStore, validThreshold, MAX_DAYS };
+--- starter/src/server.js
++++ reference/src/server.js
+@@ -1,5 +1,5 @@
+ const { createApp } = require('./app');
+ const port = Number(process.env.PORT || 3000);
+ const server = createApp().listen(port, '127.0.0.1', () => {
+-  console.log(`Starter: http://127.0.0.1:${server.address().port}`);
++  console.log(`Referenz: http://127.0.0.1:${server.address().port}`);
+ });

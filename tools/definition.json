@@ -1,0 +1,10 @@
+{
+  "name": "run_project_tests",
+  "description": "Führt die Tests des Starters oder der Referenz aus. Liefert Ergebnis, Exitcode und echte Testausgabe. Arbeitet nur in diesem lokalen Lehrprojekt.",
+  "parameters": {
+    "type": "object",
+    "properties": { "target": { "type": "string", "enum": ["starter", "reference"] } },
+    "required": ["target"],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "method": "POST",
+    "path": "/tasks",
+    "status": 201,
+    "body": {
+      "id": "ec632405-657f-412e-b94e-77044764112e",
+      "title": "Smoke test",
+      "status": "open",
+      "createdAt": "2026-10-22T11:52:10.623Z",
+      "completedAt": null
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/ec632405-657f-412e-b94e-77044764112e/complete",
+    "status": 200,
+    "body": {
+      "id": "ec632405-657f-412e-b94e-77044764112e",
+      "title": "Smoke test",
+      "status": "completed",
+      "createdAt": "2026-10-22T11:52:10.623Z",
+      "completedAt": "2026-10-22T11:52:10.628Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/report/summary",
+    "status": 200,
+    "body": {
+      "completedCount": 1
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/tasks/ec632405-657f-412e-b94e-77044764112e/archive",
+    "status": 404,
+    "body": {
+      "error": {
+        "code": "not_found",
+        "message": "route not found"
+      }
+    }
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "verifiedAt": "2026-10-22T11:52:10.703Z",
+  "node": "v26.5.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "checks": [
+    {
+      "name": "tests",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "starter/test/baseline.test.js",
+        "reference/test/baseline.test.js",
+        "reference/test/archive.test.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "tool-starter",
+      "command": [
+        "node",
+        "tools/run-tests.js",
+        "starter"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "tool-reference",
+      "command": [
+        "node",
+        "tools/run-tests.js",
+        "reference"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "regression-demo",
+      "command": [
+        "node",
+        "tools/demo-regression.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "http-starter",
+      "requests": 4,
+      "exitCode": 0
+    },
+    {
+      "name": "http-reference",
+      "requests": 8,
+      "exitCode": 0
+    }
+  ],
+  "sha256": {
+    ".gitignore": "ade98c486bfc9277521778e728d62fa2cd8b610b271fefa8535fc24057cf9fff",
+    "AUFGABENSTELLUNG.md": "26c87b40752851827d655e13cae2a2f961ce0a06a3023331a099d4e5b8e68376",
+    "README.md": "72187649511efbfffee6b0e55df2f1ff168a622d529a2492610dc9e211691530",
+    "WALKTHROUGH.md": "c63d08d5a0b5b49bd18723692447444319d09ea779dd292c4e70bfc2d0e2050e",
+    "demos/report-regression.test.js": "5ab1f3d9cbc033e22d3e78d18da9d8c16aec677ca22740c6990b6701d7d1bb46",
+    "docs/ABGABE-CHECKLISTE.md": "a81c1ad64520f88227038d3ecda4af50618f7753828c98d6552a5f6d588a8e91",
+    "docs/API.md": "0d6a17d17492eae7a62b03f11eccacbde03d8540a76f8da2dcdfa5f37a575953",
+    "docs/PROMPTS.md": "a943cef757843ef5333ece16aebf9381a08bc918e80655a5d685d0509802a46a",
+    "docs/WERKZEUG.md": "e2e931f564623d8693641a31a8bba5a7376eb7120cdec20ac4990e19a2382df6",
+    "package-lock.json": "be3a4ed095a3b46d949b79f48bbd580db803b3b759a5b1538022343385fa8f65",
+    "package.json": "ba32429edf96bfc240aaba113a9fc90d1ba9b23b04fa37e4c5f6be6d2715845e",
+    "reference/CONSTITUTION.md": "8ab39b8694f6ee7088a5b61d04f628d3b22348ad7b52c0278b974a3334ca9a02",
+    "reference/ENTSCHEIDUNGEN.md": "aad7dc7e71ca20359309ca5b4ceacc781800fd2853c279e3c07a5309352e05a1",
+    "reference/HANDOVER.md": "30966aa8cb8bb1005178667dc03ffd84e9069f949353f4bd7bd12e0ce6edf6bb",
+    "reference/PLAN.md": "7928a9c590b0bd75a26131a1b530fc4ff56198bc6229952bd0b24e4630aa8849",
+    "reference/SPEC.md": "bb516116b2cb8dbe1f7c599f53da6a7ee5463e959983bce281b61057442c307d",
+    "reference/VERIFIKATION.md": "eecb94c3ff4015d0ad7dcb86da685a29567708cf0aac1f4da4f1e854ba98c593",
+    "reference/src/app.js": "5b5b69c114743ef818f99fa9a3d31181db80c7be446068708ad3b66713e176e4",
+    "reference/src/server.js": "2b958b6f0dc9a896d1c4b5da5cfca7707791d5817895f8c1bc079c7191b56699",
+    "reference/src/taskStore.js": "5c8458c06def51a378e87767c3eb18fd0f21e542ea39a7f5dd175b927e086825",
+    "reference/test/archive.test.js": "d9435639dce84e1b81f7917f292be276d81ae290a8f700d9d2849129a2715cf7",
+    "reference/test/baseline.test.js": "81cdbfc335f5fe3f63ab48958aee62cfd28a474bd6dee3d2439960431b2d9c4e",
+    "starter/src/app.js": "89c0a32dff0e4e0c060137e08f9201c6b8ee03ef34009ca2e50368639813f42d",
+    "starter/src/server.js": "c1007fd6052e6a3106adf0a4f3ebbcb6dcbbf18d4a84ae999478541f61a80bd3",
+    "starter/src/taskStore.js": "0788154384f89f5c3ce70c88024bb0a989c30c62f2434586de626a0cdbbecf0d",
+    "starter/test/baseline.test.js": "81cdbfc335f5fe3f63ab48958aee62cfd28a474bd6dee3d2439960431b2d9c4e",
+    "test-support/baseline.js": "fa595150f794fd5697e177d470124bb7bf9b9f19e3ed2c92baf7004408cd89ba",
+    "test-support/fixture.js": "a1c58e786a55257f1dc8ea0882ce66463d5a51af3027eb55674251e0b8bf1a59",
+    "tools/definition.json": "b8664447a55957342e2c1a05d8f7b3a0e87380d97b01ffb32fc54fd5f01ba8ee",
+    "tools/demo-regression.js": "29a9b34342fbc13ba9b0ed81e4941d4068dfaa7ded2f350569ef82312af70586",
+    "tools/run-tests.js": "53c2f01aebecc16ef436446a1d296f7affa2679f148c78bcabae5e45a442226e",
+    "tools/verify.js": "2aa746ce09d01e22c2de1a6e1997e3906432cdcda509e65b680f38b98d546510"
+  },
+  "note": "Tatsächliche lokale Prüfläufe. Keine separate Agentenprüfung und keine vergangenen Sitzungen nachgewiesen."
+}
